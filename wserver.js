@@ -53,7 +53,7 @@ mqttclient.on('message', function(topic, message) {
 io.on('connection', function(socket){
     socket.on('msg1', function(msg){
         console.log('Message from Socket Client', msg)
-        mqttclient.publish('/paho/t2', msg);
+        sendToMQTT(msg);
     });
     console.log('a user connected');
     io.emit('msg', {type:'MESSAGE_FROM_SERVER', data:'Connected to Socket.io Successfully'})
@@ -75,11 +75,12 @@ const onMQTT =(message, topic) => {
         msgjson= JSON.parse(message.toString());
     } catch(e) {}
     io.emit('msg', {type:'MESSAGE_FROM_AR', data:msgjson});
-    console.log(topic, msgjson, '------------------');
+    console.log('From MQTT => ', msgjson);
     processMQTT(msgjson);
 };
 
 const sendToMQTT =msg=> {
+    console.log('Sending to MQTT =======>', msg);
     mqttclient.publish('/paho/t2', msg);
 };
 
