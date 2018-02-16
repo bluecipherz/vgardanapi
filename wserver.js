@@ -1,0 +1,147 @@
+/**
+ * Created by intellicar-rinas on 16/2/18.
+ */
+
+
+let compression = require('compression');
+let express     = require('express');
+let bodyParser  = require('body-parser');
+let morgan      = require('morgan');
+let jwt         = require('jsonwebtoken');
+let utils = require('./app/common/utils.js');
+let appconfig = require('./app/config/appconfig.js');
+let commonAPIs = require('./app/commonAPIs/commonAPIs');
+
+let app = express();
+
+let http = require('http');
+let server = http.Server(app);
+let io = require('socket.io')(http);
+
+let mqtt = require('mqtt');
+let mqttclient = mqtt.connect('mqtt://localhost');
+let mqttconnected = false;
+
+
+
+/*
+*
+*
+* */
+
+
+app.use(compression());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+mqttclient.on('connect', function () {
+    console.log('mqtt connected');
+    mqttconnected = true;
+});
+
+mqttclient.subscribe('/paho/temperature/#');
+
+mqttclient.on('message', function(topic, message) {
+    onMQTT(message, topic);
+});
+
+io.on('connection', function(socket){
+    socket.on('msg1', function(msg){
+        console.log('Message from Socket Client', msg)
+        mqttclient.publish('/paho/t2', msg);
+    });
+    console.log('a user connected');
+    io.emit('msg', {type:'MESSAGE_FROM_SERVER', data:'Connected to Socket.io Successfully'})
+});
+
+
+/*
+*
+*
+*
+* */
+
+const processMQTT =msg=> {
+};
+
+const onMQTT =(message, topic) => {
+    let msgjson = message ? message.toString() : 'No Data';
+    try {
+        msgjson= JSON.parse(message.toString());
+    } catch(e) {}
+    io.emit('msg', {type:'MESSAGE_FROM_AR', data:msgjson});
+    console.log(topic, msgjson);
+    processMQTT(msgjson);
+};
+
+const sendToMQTT =msg=> {
+    mqttclient.publish('/paho/t2', msg);
+};
+
+const getAssetTypes =()=> {
+    commonAPIs.getssettypes({}, status=>{
+        if(status.err) {
+            setTimeout(getAssetTypes, 2000);
+        } else {
+            assettypeMap = status.data;
+        }
+    });
+};
+
+const checkStatus =()=> {
+    commonAPIs.getstatus({}, data=> {
+        console.log(data);
+        for(let idx in data) {
+            let cmd=null;
+            switch (data[idx].assettypeid) {
+                case 0:
+                    cmd = data[idx].status ? commandMap.MOTOR.ON : commandMap.MOTOR.OFF;
+                    break;
+
+                case 1:
+                    cmd = data[idx].status ? commandMap.TUBELIGHT.ON : commandMap.TUBELIGHT.OFF;
+                    break;
+            }
+            if(cmd !== null) {
+                sendToMQTT(cmd)
+            }
+        }
+    });
+};
+
+/*
+*
+*
+*
+* */
+
+let commandMap = {
+    MOTOR: { ON:'a', OFF: 'b' },
+    TUBELIGHT: { ON:'c', OFF: 'd' },
+    COMMON: { REQSTATUS: 'e'}
+};
+
+let assettypeMap = null;
+
+server.listen(appconfig.wsport, function(){
+     console.log('Client Connected to Socket IO');
+    // io.emit('msg', 'connected')
+    setInterval(()=>{
+        checkStatus();
+        sendToMQTT(commandMap.COMMON.REQSTATUS);
+    }, 3000);
+    getAssetTypes();
+});
+
+app.post('/', function (req, res) {
+    utils.succReply('','test success',res);
+});
+
+
+
