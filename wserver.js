@@ -14,8 +14,7 @@ let commonAPIs = require('./app/commonAPIs/commonAPIs');
 
 let app = express();
 
-let http = require('http');
-let server = http.Server(app);
+let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
 let mqtt = require('mqtt');
@@ -129,7 +128,7 @@ let commandMap = {
 
 let assettypeMap = null;
 
-server.listen(appconfig.wsport, function(){
+http.listen(appconfig.wsport, function(){
      console.log('Client Connected to Socket IO', appconfig.wsport);
     // io.emit('msg', 'connected')
     setInterval(()=>{
