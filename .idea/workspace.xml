@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="008dbe83-4a8f-4a41-a452-acc21186ff4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/commonAPIs/commonAPIs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/commonAPIs/commonAPIsRoutes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wserver.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/appconfig.js" afterPath="$PROJECT_DIR$/app/config/appconfig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mysqlconfig.js" afterPath="$PROJECT_DIR$/app/config/mysqlconfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wserver.js" afterPath="$PROJECT_DIR$/wserver.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +21,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+            <state relative-caret-position="450">
+              <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -37,8 +31,8 @@
       <file leaf-file-name="wserver.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wserver.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="112" column="13" lean-forward="true" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+            <state relative-caret-position="436">
+              <caret line="132" column="66" lean-forward="false" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
               <folding>
                 <element signature="e#0#50#0" expanded="false" />
               </folding>
@@ -103,9 +97,9 @@
         <option value="$PROJECT_DIR$/app/commonAPIs/APIList.js" />
         <option value="$PROJECT_DIR$/app/commonAPIs/APIListRoutes.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/commonAPIs/commonAPIsRoutes.js" />
         <option value="$PROJECT_DIR$/app/commonAPIs/commonAPIs.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/wserver.js" />
       </list>
     </option>
@@ -347,12 +341,20 @@
       <workItem from="1517494783286" duration="10459000" />
       <workItem from="1517842344511" duration="2677000" />
       <workItem from="1518421558008" duration="8524000" />
-      <workItem from="1518779129182" duration="12876000" />
+      <workItem from="1518779129182" duration="13991000" />
     </task>
+    <task id="LOCAL-00001" summary="wsever error fixed">
+      <created>1518798924441</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1518798924441</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38377000" />
+    <option name="totallyTimeSpent" value="39492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="-4" width="1557" height="904" extended-state="6" />
@@ -381,6 +383,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="wsever error fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="wsever error fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -519,14 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/appconfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -561,14 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/commonAPIs/commonAPIsRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -585,10 +575,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/appconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wserver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="112" column="13" lean-forward="true" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+        <state relative-caret-position="436">
+          <caret line="132" column="66" lean-forward="false" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
           <folding>
             <element signature="e#0#50#0" expanded="false" />
           </folding>

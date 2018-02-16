@@ -130,7 +130,7 @@ let commandMap = {
 let assettypeMap = null;
 
 server.listen(appconfig.wsport, function(){
-     console.log('Client Connected to Socket IO');
+     console.log('Client Connected to Socket IO', appconfig.wsport);
     // io.emit('msg', 'connected')
     setInterval(()=>{
         checkStatus();
