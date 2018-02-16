@@ -95,16 +95,16 @@ const getAssetTypes =()=> {
 
 const checkStatus =()=> {
     commonAPIs.getstatus({}, data=> {
-        console.log(data);
-        for(let assettypeid in data) {
+        for(let idx in data.data) {
             let cmd=null;
+            let assettypeid = data.data[idx].assettypeid;
             switch (assettypeid) {
-                case 0:
-                    cmd = data[assettypeid] ? commandMap.MOTOR.ON : commandMap.MOTOR.OFF;
+                case 1:
+                    cmd = data.data[idx].status ? commandMap.MOTOR.ON : commandMap.MOTOR.OFF;
                     break;
 
-                case 1:
-                    cmd = data[assettypeid] ? commandMap.TUBELIGHT.ON : commandMap.TUBELIGHT.OFF;
+                case 2:
+                    cmd = data.data[idx].status ? commandMap.TUBELIGHT.ON : commandMap.TUBELIGHT.OFF;
                     break;
             }
             if(cmd !== null) {
