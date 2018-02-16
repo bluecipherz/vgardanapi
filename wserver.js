@@ -75,7 +75,7 @@ const onMQTT =(message, topic) => {
         msgjson= JSON.parse(message.toString());
     } catch(e) {}
     io.emit('msg', {type:'MESSAGE_FROM_AR', data:msgjson});
-    console.log(topic, msgjson);
+    console.log(topic, msgjson, '------------------');
     processMQTT(msgjson);
 };
 
