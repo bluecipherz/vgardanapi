@@ -31,8 +31,8 @@
       <file leaf-file-name="commonAPIs.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/commonAPIs/commonAPIs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="85" column="64" lean-forward="false" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
+            <state relative-caret-position="106">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -354,7 +354,7 @@
       <workItem from="1517842344511" duration="2677000" />
       <workItem from="1518421558008" duration="8524000" />
       <workItem from="1518779129182" duration="15680000" />
-      <workItem from="1518844000380" duration="775000" />
+      <workItem from="1518844000380" duration="1382000" />
     </task>
     <task id="LOCAL-00001" summary="wsever error fixed">
       <created>1518798924441</created>
@@ -398,11 +398,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518802253614</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="wsever error fixed">
+      <created>1518851815042</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1518851815042</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41956000" />
+    <option name="totallyTimeSpent" value="42563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="-11" width="1559" height="912" extended-state="6" />
@@ -653,8 +660,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/commonAPIs/commonAPIs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="85" column="64" lean-forward="false" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
+        <state relative-caret-position="106">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>

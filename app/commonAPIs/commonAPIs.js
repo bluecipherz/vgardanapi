@@ -83,8 +83,8 @@ let getTimeLimit =arr=> {
 };
 
 let checkstatus = function(body, callback) {
-    console.log(moment(Date.now()).format('DD-MMM-YYYY HH:mm'));
     getconfig(body, status=> {
+        console.log(moment(Date.now()).format('DD-MMM-YYYY HH:mm'));
        if(status.err) {
            callback(status);
        } else {
