@@ -89,6 +89,7 @@ let checkstatus = function(body, callback) {
        } else {
            let config = status.data;
            let res = {};
+           let now = Date.now() + (1000 * 60* 30) + ( 1000 * 60 * 60 * 5);
            for(let idx in config) {
                 let confJSON = null;
 
@@ -102,12 +103,12 @@ let checkstatus = function(body, callback) {
                 let starttime;
                 let endtime;
                 let today = moment(Date.now()).startOf('day');
-                let now = Date.now() + (1000 * 60* 30) + ( 1000 * 60 * 60 * 5);
 
                 for(let jdx in confJSON.timer) {
                     starttime = today + getTimeLimit(confJSON.timer[jdx].from);
                     endtime = today + getTimeLimit(confJSON.timer[jdx].to);
                     res[config[idx].assettypeid] = now >= starttime && now <= endtime ? confJSON.timer[jdx].value : confJSON.default;
+                    console.log(moment(starttime).format('DD-MMM-YYYY HH:mm'), moment(now).format('DD-MMM-YYYY HH:mm'), moment(endtime).format('DD-MMM-YYYY HH:mm'));
                 }
            }
 
