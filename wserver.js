@@ -135,7 +135,7 @@ http.listen(appconfig.wsport, function(){
     setInterval(()=>{
         checkStatus();
         sendToMQTT(commandMap.COMMON.REQSTATUS);
-    }, 10000);
+    }, 2000);
 });
 
 app.post('/', function (req, res) {
