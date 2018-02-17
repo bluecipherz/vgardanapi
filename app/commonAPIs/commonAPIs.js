@@ -84,8 +84,6 @@ let getTimeLimit =arr=> {
 
 let checkstatus = function(body, callback) {
     getconfig(body, status=> {
-        console.log(moment(Date.now()).format('DD-MMM-YYYY HH:mm'));
-        console.log(moment(Date.now() + (1000 * 60* 30) + ( 1000 * 60 * 60 * 5)).format('DD-MMM-YYYY HH:mm'));
        if(status.err) {
            callback(status);
        } else {
@@ -104,13 +102,12 @@ let checkstatus = function(body, callback) {
                 let starttime;
                 let endtime;
                 let today = moment(Date.now()).startOf('day');
-                let now = Date.now();
+                let now = Date.now() + (1000 * 60* 30) + ( 1000 * 60 * 60 * 5);
 
                 for(let jdx in confJSON.timer) {
                     starttime = today + getTimeLimit(confJSON.timer[jdx].from);
                     endtime = today + getTimeLimit(confJSON.timer[jdx].to);
                     res[config[idx].assettypeid] = now >= starttime && now <= endtime ? confJSON.timer[jdx].value : confJSON.default;
-                    console.log(confJSON.timer[jdx].from , '===================', moment(starttime).format('DD-MMM-YYYY HH:mm'));
                 }
            }
 
