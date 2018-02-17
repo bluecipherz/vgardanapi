@@ -32,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/app/commonAPIs/commonAPIs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="106">
-              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <caret line="87" column="79" lean-forward="false" selection-start-line="87" selection-start-column="79" selection-end-line="87" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -354,7 +354,7 @@
       <workItem from="1517842344511" duration="2677000" />
       <workItem from="1518421558008" duration="8524000" />
       <workItem from="1518779129182" duration="15680000" />
-      <workItem from="1518844000380" duration="1382000" />
+      <workItem from="1518844000380" duration="1542000" />
     </task>
     <task id="LOCAL-00001" summary="wsever error fixed">
       <created>1518798924441</created>
@@ -405,11 +405,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518851815042</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="wsever error fixed">
+      <created>1518852418581</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1518852418581</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42563000" />
+    <option name="totallyTimeSpent" value="42723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="-11" width="1559" height="912" extended-state="6" />
@@ -661,7 +668,7 @@
     <entry file="file://$PROJECT_DIR$/app/commonAPIs/commonAPIs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <caret line="87" column="79" lean-forward="false" selection-start-line="87" selection-start-column="79" selection-end-line="87" selection-end-column="79" />
           <folding />
         </state>
       </provider>
