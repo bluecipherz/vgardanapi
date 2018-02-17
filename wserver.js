@@ -100,15 +100,14 @@ const checkStatus =()=> {
             let cmd=null;
             // let assettypeid = data.data[idx].assettypeid;
             switch (assettypeid) {
-                case 1:
+                case '1':
                     cmd = data.data[assettypeid] ? commandMap.MOTOR.ON : commandMap.MOTOR.OFF;
                     break;
 
-                case 2:
+                case '2':
                     cmd = data.data[assettypeid] ? commandMap.TUBELIGHT.ON : commandMap.TUBELIGHT.OFF;
                     break;
             }
-            console.log(cmd, data.data[assettypeid]);
             if(cmd !== null) {
                 sendToMQTT(cmd)
             }
