@@ -108,7 +108,6 @@ let checkstatus = function(body, callback) {
                     starttime = today + getTimeLimit(confJSON.timer[jdx].from);
                     endtime = today + getTimeLimit(confJSON.timer[jdx].to);
                     res[config[idx].assettypeid] = now >= starttime && now <= endtime ? confJSON.timer[jdx].value : confJSON.default;
-                    console.log(moment(starttime).format('DD-MMM-YYYY HH:mm'), moment(now).format('DD-MMM-YYYY HH:mm'), moment(endtime).format('DD-MMM-YYYY HH:mm'));
                 }
            }
 
