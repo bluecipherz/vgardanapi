@@ -135,7 +135,10 @@ http.listen(appconfig.wsport, function(){
     setInterval(()=>{
         checkStatus();
         sendToMQTT(commandMap.COMMON.REQSTATUS);
-    }, 3000);
+    }, 10000);
+    setInterval(()=>{
+        commonAPIs.checkstatus({}, data=> {})
+    }, 60000);
     getAssetTypes();
 });
 
