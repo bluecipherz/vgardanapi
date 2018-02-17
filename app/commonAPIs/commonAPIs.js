@@ -107,13 +107,13 @@ let checkstatus = function(body, callback) {
                 let now = Date.now();
 
                 for(let jdx in confJSON.timer) {
-                    starttime = today + getTimeLimit(confJSON.timer[jdx].from.split(':'));
-                    endtime = today + getTimeLimit(confJSON.timer[jdx].to.split(':'));
+                    starttime = today + getTimeLimit(confJSON.timer[jdx].from);
+                    endtime = today + getTimeLimit(confJSON.timer[jdx].to);
                     res[config[idx].assettypeid] = now >= starttime && now <= endtime ? confJSON.timer[jdx].value : confJSON.default;
+                    console.log(confJSON.timer[jdx].from , '===================', moment(starttime).format('DD-MMM-YYYY HH:mm'));
                 }
            }
 
-           console.log(res, Object.keys(res));
 
            if(Object.keys(res).length === 0) {
                status.err = null;
