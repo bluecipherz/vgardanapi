@@ -95,17 +95,17 @@ const getAssetTypes =()=> {
 };
 
 const checkStatus =()=> {
-    commonAPIs.getstatus({}, data=> {
-        for(let idx in data.data) {
+    commonAPIs.checkstatus({}, data=> {
+        for(let assettypeid in data.data) {
             let cmd=null;
-            let assettypeid = data.data[idx].assettypeid;
+            // let assettypeid = data.data[idx].assettypeid;
             switch (assettypeid) {
                 case 1:
-                    cmd = data.data[idx].status ? commandMap.MOTOR.ON : commandMap.MOTOR.OFF;
+                    cmd = data.data[assettypeid] ? commandMap.MOTOR.ON : commandMap.MOTOR.OFF;
                     break;
 
                 case 2:
-                    cmd = data.data[idx].status ? commandMap.TUBELIGHT.ON : commandMap.TUBELIGHT.OFF;
+                    cmd = data.data[assettypeid] ? commandMap.TUBELIGHT.ON : commandMap.TUBELIGHT.OFF;
                     break;
             }
             if(cmd !== null) {
@@ -136,10 +136,6 @@ http.listen(appconfig.wsport, function(){
         checkStatus();
         sendToMQTT(commandMap.COMMON.REQSTATUS);
     }, 10000);
-    setInterval(()=>{
-        commonAPIs.checkstatus({}, data=> {})
-    }, 60000);
-    getAssetTypes();
 });
 
 app.post('/', function (req, res) {
