@@ -96,6 +96,7 @@ const getAssetTypes =()=> {
 
 const checkStatus =()=> {
     commonAPIs.checkstatus({}, data=> {
+        console.log(data);
         for(let assettypeid in data.data) {
             let cmd=null;
             // let assettypeid = data.data[idx].assettypeid;
